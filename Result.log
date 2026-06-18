@@ -1,0 +1,29 @@
+====================================================================================
+                AHB-TO-APB BRIDGE FSM AUTOMATED TESTBENCH                           
+====================================================================================
+
+[Test 1] Asserting Reset
+Cycle 01 | State: ST_IDLE    -> Next: ST_IDLE    | valid=0 tempselx=0
+         AHB Inputs : Haddr=0x00000000 Hwrite=0 Htrans=0 Hwdata=0x00000000
+         APB Outputs: Paddr=0x00000000 Pwrite=0 Pselx=0 Penable=0 Pwdata=0x00000000 Hreadyout=0
+------------------------------------------------------------------------------------
+
+[Test 2] Single Read Transaction (Address = 0x80001000)
+Cycle 02 | State: ST_IDLE    -> Next: ST_READ    | valid=1 tempselx=1
+         AHB Inputs : Haddr=0x80001000 Hwrite=0 Htrans=2 Hwdata=0x00000000
+         APB Outputs: Paddr=0x00000000 Pwrite=0 Pselx=0 Penable=0 Pwdata=0x00000000 Hreadyout=1
+------------------------------------------------------------------------------------
+Cycle 03 | State: ST_READ    -> Next: ST_RENABLE | valid=0 tempselx=1
+         AHB Inputs : Haddr=0x80001000 Hwrite=0 Htrans=0 Hwdata=0x00000000
+         APB Outputs: Paddr=0x80001000 Pwrite=0 Pselx=1 Penable=0 Pwdata=0x00000000 Hreadyout=0
+------------------------------------------------------------------------------------
+Cycle 04 | State: ST_RENABLE -> Next: ST_IDLE    | valid=0 tempselx=1
+         AHB Inputs : Haddr=0x80001000 Hwrite=0 Htrans=0 Hwdata=0x00000000
+         APB Outputs: Paddr=0x80001000 Pwrite=0 Pselx=1 Penable=1 Pwdata=0x00000000 Hreadyout=1
+------------------------------------------------------------------------------------
+Cycle 05 | State: ST_IDLE    -> Next: ST_IDLE    | valid=0 tempselx=1
+         AHB Inputs : Haddr=0x80001000 Hwrite=0 Htrans=0 Hwdata=0x00000000
+         APB Outputs: Paddr=0x80001000 Pwrite=0 Pselx=0 Penable=0 Pwdata=0x00000000 Hreadyout=1
+------------------------------------------------------------------------------------
+
+All test cases PASSED successfully!
