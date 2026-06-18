@@ -118,3 +118,7 @@ If you want to keep improving the project, good follow-up additions would be:
 - more test cases for write transactions and pipelined transfers
 - a short waveform or timing diagram in the README
 - a small section documenting any intended RTL-vs-model differences
+
+  GUI LINK: https://gautamkumar10042001-bot.github.io/AHB_to_APB-Bridge-C-GUI-/gui.html
+
+
